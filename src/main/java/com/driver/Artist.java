@@ -12,7 +12,7 @@ public class Artist {
 
     public Artist(String name){
         this.name = name;
-        this.likes = 1;
+        this.likes = 0;
     }
 
     public String getName() {
