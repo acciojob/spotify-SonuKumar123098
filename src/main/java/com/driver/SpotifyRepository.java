@@ -233,15 +233,15 @@ public class SpotifyRepository {
             List<User>userl=new ArrayList<>();
             userl.add(user);
             songLikeMap.put(song,userl);
-        }else{
-            for(User use:songLikeMap.get(song)){
-                if(use.getMobile().equals(user.getMobile())){
+        }else {
+            for (User use : songLikeMap.get(song)) {
+                if (use.getMobile().equals(user.getMobile())) {
                     return song;
                 }
             }
             songLikeMap.get(song).add(user);
-            song.setLikes(song.getLikes()+1);
         }
+        song.setLikes(song.getLikes()+1);
         for(Artist art:artistAlbumMap.keySet()){
             for(Album alb:artistAlbumMap.get(art)){
                 if(albumSongMap.containsKey(alb)){
