@@ -242,17 +242,17 @@ public class SpotifyRepository {
             songLikeMap.get(song).add(user);
         }
         song.setLikes(song.getLikes()+1);
+        Album album=null;
+        for(Album alb:albumSongMap.keySet()){
+            if(albumSongMap.get(alb).contains(song)){
+                album=alb;
+                break;
+            }
+        }
         for(Artist art:artistAlbumMap.keySet()){
-            for(Album alb:artistAlbumMap.get(art)){
-                if(albumSongMap.containsKey(alb)){
-                    for(Song son:albumSongMap.get(alb)){
-                        if(son.getTitle().equals(songTitle)){
-                            art.setLikes(art.getLikes()+1);
-//                            artists.add(art);
-                            return song;
-                        }
-                    }
-                }
+            if(artistAlbumMap.get(art).contains(album)){
+                art.setLikes(art.getLikes()+1);
+                break;
             }
         }
         return song;
