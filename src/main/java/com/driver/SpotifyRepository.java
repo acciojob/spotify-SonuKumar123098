@@ -273,7 +273,7 @@ public class SpotifyRepository {
         int like=0; Song song=null;
         for(Song key:songs){
             if(key.getLikes()>like){
-                like= song.getLikes();
+                like= key.getLikes();
                 song=key;
             }
         }
